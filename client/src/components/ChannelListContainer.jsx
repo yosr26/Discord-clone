@@ -1,24 +1,39 @@
 import React from 'react'
-import {ChannelList, useChatContext} from 'stream-cht-react'
-import Cookies from 'universal-cookie'
-import {ChannelSearch, GroupChannelList, GroupChannelPreview} from './'
-import siteLogo from '../assets/siteLogo'
+import SideBar from './SideBar'
+import CompanyHeader from './CompanyHeader'
+import ChannelSearch from './ChannelSearch'
+import {ChannelList, useChatContext} from 'stream-chat-react'
+// import Cookies from 'universal-cookie'
+import GroupChannelList from './GroupChannelList'
+import GroupChannelPreview from './GroupChannelPreview'
 
-const SideBar = () =>{
-    <div className='channel-list__sidebar'>
-        <div className='channel-list__sidebar__icon1'>
-            <div className='icon1__inner'>
-                <img src={siteLogo} alt="logo" width="30"/>
-            </div>
 
-        </div>
-    </div>
-}
-
-const ChannelListContainer = () => {
+export default function ChannelListContainer() {
     return(
-        <div></div>
+        <>
+            <SideBar/>
+            <div className='channel-list__list__wrapper'>
+                <CompanyHeader/>
+                <ChannelSearch/>
+                <ChannelList
+                     filters={{}}
+                     channelRenderFilterFn={()=>{}}
+                     List={(listProps)=>(
+                        <GroupChannelList
+                            {...listProps}
+                            type ="team"
+                        />
+                     )}
+                     Preview={(previewProps) =>(
+                        <GroupChannelPreview
+                            {...previewProps}
+                            type= "team"
+                        />
+                     )}
+                />
+
+            </div>
+        </>
     )
 }
 
-export default ChannelListContainer;
