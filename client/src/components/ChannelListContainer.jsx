@@ -31,6 +31,22 @@ export default function ChannelListContainer() {
                         />
                      )}
                 />
+                <ChannelList
+                     filters={{}}
+                     channelRenderFilterFn={()=>{}}
+                     List={(listProps)=>(
+                        <GroupChannelList
+                            {...listProps}
+                            type ="messaging"
+                        />
+                     )}
+                     Preview={(previewProps) =>(
+                        <GroupChannelPreview
+                            {...previewProps}
+                            type= "messaging"
+                        />
+                     )}
+                />
 
             </div>
         </>
