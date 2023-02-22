@@ -23,9 +23,9 @@ export default function Auth() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    const { fullName, username, password, phoneNumber, avatarUrl } = form;
+    const { fullName, username, password, phoneNumber, avatarURL } = form;
 
-    const URL = "http;//localhost:5000/auth";
+    const URL = "http://localhost:5000/auth";
     const {
       data: { token, userId, hashedPassword },
     } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
