@@ -40,7 +40,7 @@ const login = async (req, res) => {
 
         if(!users.length) return res.status(400).json({ message: 'User not found' });
 
-        const success = await bcrypt.compare(password, users[0].hashedPassword);
+        const success = bcrypt.compare(password, users[0].hashedPassword);
 
         const token = serverClient.createUserToken(users[0].id);
 
@@ -49,7 +49,8 @@ const login = async (req, res) => {
         } else {
             res.status(500).json({ message: 'Incorrect password' });
         }
-    } catch (error) {ads
+    } catch (error) {
+
         console.log(error);
 
         res.status(500).json({ message: error });

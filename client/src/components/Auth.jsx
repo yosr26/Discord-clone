@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import signin from "../assets/signin.png";
+import signin from "../assets/signin.jpg";
 
 let initialState = {
   fullName: "",
@@ -33,7 +33,7 @@ export default function Auth() {
       password,
       fullName,
       phoneNumber,
-      avatarUrl,
+      avatarURL,
     });
     cookies.set("token", token);
     cookies.set("username", username);

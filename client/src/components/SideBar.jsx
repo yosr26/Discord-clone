@@ -2,7 +2,7 @@ import '../App.css'
 import Logout from '../assets/Logout.png'
 import siteLogo from '../assets/siteLogo2.png'
 
-export default function SideBar(){
+export default function SideBar({logout}){
     return(<div className='channel-list__sidebar'>
         <div className='channel-list__sidebar__icon1'>
             <div className='icon1__inner'>
@@ -11,7 +11,7 @@ export default function SideBar(){
         </div>
         <div className='channel-list__sidebar__icon2'>
             <div className='icon2__inner'>
-                <img src={Logout} alt="logout" width="30"/>
+                <img src={Logout} alt="logout" width="30" onClick={logout}/>
             </div>
 
         </div>
